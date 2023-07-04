@@ -1,20 +1,20 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  url: postgres://caleb:cKplQYmoTwnH78Qrj4mWMjUwdLM8keo0@dpg-cii5ir2ip7vpelq7e4vg-a.oregon-postgres.render.com/budget_app_dev
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: dpg-cii5ir2ip7vpelq7e4vg-a
   port: 5432
   username: caleb
-  password: dpg-cii5ir2ip7vpelq7e4vg-a
+  password: cKplQYmoTwnH78Qrj4mWMjUwdLM8keo0
 
 development:
   <<: *default
-  database: Budget_App_development
+  database: budget_app_dev
 
 test:
   <<: *default
-  database: Budget_App_test
+  database: budget_app_dev
 
 production:
   <<: *default
-  database: Budget_App_production
+  database: budget_app_dev
