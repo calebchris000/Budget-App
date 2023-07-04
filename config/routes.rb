@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :login_signups
-  resources :splash_screens
   devise_for :users
   resources :users
   resources :groups do
@@ -8,7 +7,8 @@ Rails.application.routes.draw do
   end
   resources :group_entities
 
-  root "groups#index"
+  root "login_signups#index"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"

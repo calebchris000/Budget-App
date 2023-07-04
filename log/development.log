@@ -11179,3 +11179,174 @@ Processing by EntitiesController#index as HTML
 Completed 200 OK in 81ms (Views: 54.8ms | ActiveRecord: 6.4ms | Allocations: 11382)
 
 
+Started GET "/login_signups" for 127.0.0.1 at 2023-07-04 16:50:48 +0100
+Processing by LoginSignupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering login_signups/index.html.erb within layouts/application
+  Rendered login_signups/index.html.erb within layouts/application (Duration: 38.0ms | Allocations: 258)
+  Rendered layout layouts/application.html.erb (Duration: 2079.3ms | Allocations: 30175)
+Completed 200 OK in 2951ms (Views: 2350.3ms | Allocations: 32371)
+
+
+Started GET "/" for 127.0.0.1 at 2023-07-04 16:51:32 +0100
+Processing by LoginSignupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering login_signups/index.html.erb within layouts/application
+  Rendered login_signups/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 64.1ms | Allocations: 13754)
+Completed 200 OK in 80ms (Views: 66.0ms | Allocations: 15481)
+
+
+Started GET "/" for 127.0.0.1 at 2023-07-04 18:19:10 +0100
+  
+ArgumentError (Invalid route name, already in use: 'root' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+https://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:16:in `block (2 levels) in <main>'
+config/routes.rb:15:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2023-07-04 18:20:30 +0100
+  
+ArgumentError (Invalid route name, already in use: 'root' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+https://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:16:in `block (2 levels) in <main>'
+config/routes.rb:15:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2023-07-04 18:21:45 +0100
+  
+NoMethodError (undefined method `user_sign_in?' for #<ActionDispatch::Routing::Mapper:0x000001ae2591ed38 @set=#<ActionDispatch::Routing::RouteSet:0x000001ae1ea2b0e8>, @draw_paths=[#<Pathname:C:/Users/CalebNwaizu/Documents/Budget-App/config/routes>], @scope=#<ActionDispatch::Routing::Mapper::Scope:0x000001ae23570ad0 @hash={:path_names=>{:new=>"new", :edit=>"edit"}}, @parent=#<ActionDispatch::Routing::Mapper::Scope:0x000001ae23980030 @hash=nil, @parent=nil, @scope_level=nil>, @scope_level=nil>, @concerns={}, @devise_finalized=false>):
+  
+config/routes.rb:11:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2023-07-04 18:22:41 +0100
+  
+NoMethodError (undefined method `user_signed_in?' for #<ActionDispatch::Routing::Mapper:0x000001ae25becda8 @set=#<ActionDispatch::Routing::RouteSet:0x000001ae1ea2b0e8>, @draw_paths=[#<Pathname:C:/Users/CalebNwaizu/Documents/Budget-App/config/routes>], @scope=#<ActionDispatch::Routing::Mapper::Scope:0x000001ae234a14d8 @hash={:path_names=>{:new=>"new", :edit=>"edit"}}, @parent=#<ActionDispatch::Routing::Mapper::Scope:0x000001ae23980030 @hash=nil, @parent=nil, @scope_level=nil>, @scope_level=nil>, @concerns={}, @devise_finalized=false>):
+  
+config/routes.rb:11:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 127.0.0.1 at 2023-07-04 18:24:44 +0100
+Processing by LoginSignupsController#index as HTML
+  [1m[36mUser Load (164.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/login_signups_controller.rb:6:in `index'
+Redirected to http://127.0.0.1:3000/groups
+Completed 302 Found in 3239ms (ActiveRecord: 548.6ms | Allocations: 7320)
+
+
+Started GET "/groups" for 127.0.0.1 at 2023-07-04 18:24:53 +0100
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Exists? (47.8ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/groups/index.html.erb:3
+  [1m[36mGroup Load (1.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  [1m[36mEntity Sum (90.2ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/index.html.erb:13
+  [1m[36mEntity Sum (1.1ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/index.html.erb:13
+  Rendered groups/index.html.erb within layouts/application (Duration: 258.0ms | Allocations: 10310)
+  Rendered layout layouts/application.html.erb (Duration: 342.5ms | Allocations: 23768)
+Completed 200 OK in 403ms (Views: 215.1ms | ActiveRecord: 141.0ms | Allocations: 27321)
+
+
+Started GET "/" for 127.0.0.1 at 2023-07-04 18:25:03 +0100
+Processing by LoginSignupsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/login_signups_controller.rb:6:in `index'
+Redirected to http://127.0.0.1:3000/groups
+Completed 302 Found in 13ms (ActiveRecord: 0.7ms | Allocations: 1082)
+
+
+Started GET "/groups" for 127.0.0.1 at 2023-07-04 18:25:03 +0100
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/groups/index.html.erb:3
+  [1m[36mGroup Load (0.9ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  [1m[36mEntity Sum (1.1ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/index.html.erb:13
+  [1m[36mEntity Sum (1.1ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/index.html.erb:13
+  Rendered groups/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 3245)
+  Rendered layout layouts/application.html.erb (Duration: 37.2ms | Allocations: 5430)
+Completed 200 OK in 50ms (Views: 34.5ms | ActiveRecord: 4.7ms | Allocations: 7058)
+
+
+Started GET "/" for 127.0.0.1 at 2023-07-04 18:25:17 +0100
+Processing by LoginSignupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering login_signups/index.html.erb within layouts/application
+  Rendered login_signups/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 96)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 2403)
+Completed 200 OK in 44ms (Views: 20.6ms | ActiveRecord: 0.0ms | Allocations: 3131)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-07-04 18:25:21 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 6.1ms | Allocations: 752)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 176.3ms | Allocations: 3396)
+  Rendered layout layouts/application.html.erb (Duration: 196.4ms | Allocations: 5694)
+Completed 200 OK in 260ms (Views: 223.9ms | ActiveRecord: 0.0ms | Allocations: 7210)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-07-04 18:25:26 +0100
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"thorodin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "thorodin@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 1064ms (ActiveRecord: 1.2ms | Allocations: 3749)
+
+
+Started GET "/" for 127.0.0.1 at 2023-07-04 18:25:28 +0100
+Processing by LoginSignupsController#index as TURBO_STREAM
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/login_signups_controller.rb:6:in `index'
+Redirected to http://127.0.0.1:3000/groups
+Completed 302 Found in 15ms (ActiveRecord: 1.1ms | Allocations: 1093)
+
+
+Started GET "/groups" for 127.0.0.1 at 2023-07-04 18:25:28 +0100
+Processing by GroupsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/groups/index.html.erb:3
+  [1m[36mGroup Load (1.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  [1m[36mEntity Sum (2.5ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/index.html.erb:13
+  [1m[36mEntity Sum (1.0ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/index.html.erb:13
+  Rendered groups/index.html.erb within layouts/application (Duration: 20.4ms | Allocations: 3243)
+  Rendered layout layouts/application.html.erb (Duration: 39.5ms | Allocations: 5436)
+Completed 200 OK in 62ms (Views: 35.6ms | ActiveRecord: 6.3ms | Allocations: 7119)
+
+
+Started GET "/groups" for 127.0.0.1 at 2023-07-04 18:27:59 +0100
+Processing by GroupsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/groups/index.html.erb:3
+  [1m[36mGroup Load (1.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  [1m[36mEntity Sum (1.0ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 2]]
+  ↳ app/views/groups/index.html.erb:13
+  [1m[36mEntity Sum (1.0ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 1]]
+  ↳ app/views/groups/index.html.erb:13
+  Rendered groups/index.html.erb within layouts/application (Duration: 104.1ms | Allocations: 10886)
+  Rendered layout layouts/application.html.erb (Duration: 190.4ms | Allocations: 24600)
+Completed 200 OK in 705ms (Views: 175.5ms | ActiveRecord: 466.9ms | Allocations: 31832)
+
+
