@@ -1,5 +1,5 @@
 class LoginSignupsController < ApplicationController
-  before_action :set_login_signup, only: %i[ show edit update destroy ]
+  before_action :set_login_signup, only: %i[show edit update destroy]
 
   # GET /login_signups or /login_signups.json
   def index
@@ -7,8 +7,7 @@ class LoginSignupsController < ApplicationController
   end
 
   # GET /login_signups/1 or /login_signups/1.json
-  def show
-  end
+  def show; end
 
   # GET /login_signups/new
   def new
@@ -16,8 +15,7 @@ class LoginSignupsController < ApplicationController
   end
 
   # GET /login_signups/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /login_signups or /login_signups.json
   def create
@@ -25,7 +23,7 @@ class LoginSignupsController < ApplicationController
 
     respond_to do |format|
       if @login_signup.save
-        format.html { redirect_to login_signup_url(@login_signup), notice: "Login signup was successfully created." }
+        format.html { redirect_to login_signup_url(@login_signup), notice: 'Login signup was successfully created.' }
         format.json { render :show, status: :created, location: @login_signup }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class LoginSignupsController < ApplicationController
   def update
     respond_to do |format|
       if @login_signup.update(login_signup_params)
-        format.html { redirect_to login_signup_url(@login_signup), notice: "Login signup was successfully updated." }
+        format.html { redirect_to login_signup_url(@login_signup), notice: 'Login signup was successfully updated.' }
         format.json { render :show, status: :ok, location: @login_signup }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class LoginSignupsController < ApplicationController
     @login_signup.destroy
 
     respond_to do |format|
-      format.html { redirect_to login_signups_url, notice: "Login signup was successfully destroyed." }
+      format.html { redirect_to login_signups_url, notice: 'Login signup was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_login_signup
-      @login_signup = LoginSignup.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def login_signup_params
-      params.fetch(:login_signup, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_login_signup
+    @login_signup = LoginSignup.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def login_signup_params
+    params.fetch(:login_signup, {})
+  end
 end

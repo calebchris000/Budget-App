@@ -1,19 +1,5 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
+
 :root {
   --main: #377ac2;
   --second: #5fb523;
@@ -41,6 +27,7 @@ body {
   padding: 1rem;
   background-color: var(--main);
 }
+
 .back_button {
   background-color: var(--main);
   text-decoration: none;
@@ -55,7 +42,6 @@ body {
 .splash_screen {
   background-color: var(--main);
   height: 100vh;
-  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,7 +54,6 @@ body {
 .login_signup_page {
   background-color: #ccc;
   height: 100vh;
-  height: 100dvh;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -82,15 +67,11 @@ body {
 
 .login_signup_title {
   text-align: center;
-
   color: black;
 }
 
 .login_signup_buttons {
   position: absolute;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
   text-align: center;
   bottom: 20px;
   left: 0;
@@ -106,7 +87,6 @@ body {
 .login_signup_buttons > * {
   text-decoration: none;
   color: white;
-  padding: 10px;
   border-radius: 0.3rem;
   background-color: var(--main);
   padding: 1rem 0;
@@ -186,6 +166,7 @@ input[type="submit"] {
   gap: 0.8rem;
   padding: 0.8rem 0;
 }
+
 .devise_links {
   text-decoration: none;
   cursor: pointer;
@@ -197,11 +178,13 @@ input[type="submit"] {
 button:hover {
   background-color: #45a049;
 }
+
 /* Finishing */
 .button_to {
   width: fit-content;
   margin: 0 auto;
 }
+
 .category-container {
   margin: 0 auto;
   padding: 20px;
@@ -216,9 +199,7 @@ button:hover {
 
 .new_group_button {
   background-color: var(--second);
-  padding: 10px;
   border: none;
-  margin: 0 auto;
   font-weight: 600;
   color: #fff;
   margin: 2rem 0;
@@ -235,7 +216,6 @@ button:hover {
   box-sizing: border-box;
   border-radius: 10px;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
   position: relative;
   align-items: center;
@@ -291,7 +271,7 @@ button:hover {
 }
 
 .entities_container {
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 8px;
   margin: 0 auto;
 }
