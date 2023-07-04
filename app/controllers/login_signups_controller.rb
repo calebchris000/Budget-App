@@ -3,9 +3,9 @@ class LoginSignupsController < ApplicationController
 
   # GET /login_signups or /login_signups.json
   def index
-    if user_signed_in?
-      redirect_to groups_path
-    end
+    return unless user_signed_in?
+
+    redirect_to groups_path
   end
 
   # GET /login_signups/1 or /login_signups/1.json
@@ -25,7 +25,7 @@ class LoginSignupsController < ApplicationController
 
     respond_to do |format|
       if @login_signup.save
-        format.html { redirect_to login_signup_url(@login_signup), notice: "Login signup was successfully created." }
+        format.html { redirect_to login_signup_url(@login_signup), notice: 'Login signup was successfully created.' }
         format.json { render :show, status: :created, location: @login_signup }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class LoginSignupsController < ApplicationController
   def update
     respond_to do |format|
       if @login_signup.update(login_signup_params)
-        format.html { redirect_to login_signup_url(@login_signup), notice: "Login signup was successfully updated." }
+        format.html { redirect_to login_signup_url(@login_signup), notice: 'Login signup was successfully updated.' }
         format.json { render :show, status: :ok, location: @login_signup }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class LoginSignupsController < ApplicationController
     @login_signup.destroy
 
     respond_to do |format|
-      format.html { redirect_to login_signups_url, notice: "Login signup was successfully destroyed." }
+      format.html { redirect_to login_signups_url, notice: 'Login signup was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
