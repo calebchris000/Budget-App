@@ -1,0 +1,18 @@
+
+<div class="category-container">
+ <% if @groups.empty?%>
+ <h3>There is no category yet.</h3>
+ <% end %>
+<% @groups.each do |group|%>
+<%= link_to  group_entities_path(group_id: group.id), class: 'wrapped_link' do %>
+<div class="modular_category">
+<div class="first_item">
+    <img src=<%= group.icon %> class="category_icon">
+    <h3 class="group_name"><%= group.name%><br /><p class="date"><%= DateTime.parse(group.created_at.to_s).strftime("%m-%m-%Y")%></p></h3>
+</div>
+<h3 class="second_item">$<%= format('%.2f', group.entities.sum(:amount)) %></h3>
+</div>
+<% end %>
+<% end %>
+<%= button_to "Create New Category", new_group_path, method: :get, class: 'new_group_button' %>
+</div>
