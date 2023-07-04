@@ -2,10 +2,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: localhost
+  host: dpg-cii5ir2ip7vpelq7e4vg-a
   port: 5432
-  username: caleb  
-  password: 1234
+  username: caleb
+  password: dpg-cii5ir2ip7vpelq7e4vg-a
 
 development:
   <<: *default
