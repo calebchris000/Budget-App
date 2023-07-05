@@ -52,6 +52,10 @@
     <li><a href="https://postgresql.org">PostgreSQL</a></li>
   </ul></details>
 
+# Live Preview
+> You can preview the project by visiting the link below
+
+[Link Preview](https://budget-app-igzh.onrender.com)
 # Description
 
 > You can watch a demo of the video description below.
@@ -169,7 +173,7 @@ If you like this project, please leave a ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse for providing the reading materials that aided me during the project development
+I will use this medium to appreciate [Georgoire Vella](https://www.behance.net/gregoirevella), who is the source of the inspiration for the UI of the application. I also feel thankful for Microverse for investing in my career.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
