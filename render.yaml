@@ -5,9 +5,9 @@ databases:
 
 services:
   - type: web
-    name: mysite
+    name: Budget-App
     runtime: ruby
-    buildCommand: "./bin/render-build.sh"
+    buildCommand: "./render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL

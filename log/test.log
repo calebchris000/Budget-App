@@ -4867,3 +4867,358 @@ Processing by GroupsController#index as HTML
   Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 2260)
 Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 1.3ms | Allocations: 2507)
   [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (253.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (279.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (306.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (270.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (251.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caleb@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (269.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb"], ["created_at", "2023-07-04 22:32:47.339107"], ["updated_at", "2023-07-04 22:32:47.339107"], ["email", "caleb@mail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (256.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (260.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEntity Create (362.1ms)[0m  [1m[32mINSERT INTO "entities" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Huwaii"], ["amount", 23], ["user_id", 2], ["created_at", "2023-07-04 22:32:48.474609"], ["updated_at", "2023-07-04 22:32:48.474609"]]
+  [1m[36mTRANSACTION (242.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (287.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (264.6ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Vacation"], ["icon", "icon.png"], ["user_id", 2], ["created_at", "2023-07-04 22:32:49.886999"], ["updated_at", "2023-07-04 22:32:49.886999"]]
+  [1m[36mTRANSACTION (338.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (249.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (295.5ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Travel"], ["icon", "travel.png"], ["user_id", 2], ["created_at", "2023-07-04 22:32:50.780446"], ["updated_at", "2023-07-04 22:32:50.780446"]]
+  [1m[36mTRANSACTION (280.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (252.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroupEntity Create (270.6ms)[0m  [1m[32mINSERT INTO "group_entities" ("group_id", "entity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 3], ["entity_id", 5], ["created_at", "2023-07-04 22:32:52.264246"], ["updated_at", "2023-07-04 22:32:52.264246"]]
+  [1m[36mTRANSACTION (257.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (319.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroupEntity Create (318.2ms)[0m  [1m[32mINSERT INTO "group_entities" ("group_id", "entity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 4], ["entity_id", 5], ["created_at", "2023-07-04 22:32:53.047159"], ["updated_at", "2023-07-04 22:32:53.047159"]]
+  [1m[36mTRANSACTION (319.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mGroup Exists? (290.5ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" INNER JOIN "group_entities" ON "groups"."id" = "group_entities"."group_id" WHERE "group_entities"."entity_id" = $1 AND "groups"."id" = $2 LIMIT $3[0m  [["entity_id", 5], ["id", 3], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (262.9ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" INNER JOIN "group_entities" ON "groups"."id" = "group_entities"."group_id" WHERE "group_entities"."entity_id" = $1 AND "groups"."id" = $2 LIMIT $3[0m  [["entity_id", 5], ["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (269.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (242.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (260.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (269.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caleb@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (262.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb"], ["created_at", "2023-07-04 22:32:56.181551"], ["updated_at", "2023-07-04 22:32:56.181551"], ["email", "caleb@mail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (289.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (302.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (359.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (318.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (327.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caleb@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (326.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb"], ["created_at", "2023-07-04 22:32:58.334843"], ["updated_at", "2023-07-04 22:32:58.334843"], ["email", "caleb@mail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (311.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (269.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEntity Create (279.0ms)[0m  [1m[32mINSERT INTO "entities" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Amsterdam"], ["amount", 3300], ["user_id", 4], ["created_at", "2023-07-04 22:32:58.985047"], ["updated_at", "2023-07-04 22:32:58.985047"]]
+  [1m[36mTRANSACTION (253.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (297.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (280.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (285.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (573.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caleb@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (257.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb"], ["created_at", "2023-07-04 22:33:01.508270"], ["updated_at", "2023-07-04 22:33:01.508270"], ["email", "caleb@mail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (279.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (279.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (269.3ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Travel"], ["icon", "icon.png"], ["user_id", 5], ["created_at", "2023-07-04 22:33:02.047049"], ["updated_at", "2023-07-04 22:33:02.047049"]]
+  [1m[36mTRANSACTION (361.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (255.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEntity Create (352.5ms)[0m  [1m[32mINSERT INTO "entities" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Huwaii"], ["amount", 3302], ["user_id", 5], ["created_at", "2023-07-04 22:33:02.959154"], ["updated_at", "2023-07-04 22:33:02.959154"]]
+  [1m[36mTRANSACTION (245.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (271.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroupEntity Create (319.6ms)[0m  [1m[32mINSERT INTO "group_entities" ("group_id", "entity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 5], ["entity_id", 7], ["created_at", "2023-07-04 22:33:03.814980"], ["updated_at", "2023-07-04 22:33:03.814980"]]
+  [1m[36mTRANSACTION (319.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (281.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (245.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (392.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (320.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caleb@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (268.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb"], ["created_at", "2023-07-04 22:33:06.336654"], ["updated_at", "2023-07-04 22:33:06.336654"], ["email", "caleb@mail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (279.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (406.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (360.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mGroup Create (317.6ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Group 1"], ["icon", "icon.png"], ["user_id", 6], ["created_at", "2023-07-04 22:33:08.247251"], ["updated_at", "2023-07-04 22:33:08.247251"]]
+  [1m[36mTRANSACTION (313.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (325.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEntity Create (295.0ms)[0m  [1m[32mINSERT INTO "entities" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Entity 1"], ["amount", 42], ["user_id", 6], ["created_at", "2023-07-04 22:33:08.880810"], ["updated_at", "2023-07-04 22:33:08.880810"]]
+  [1m[36mTRANSACTION (272.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (399.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEntity Create (270.4ms)[0m  [1m[32mINSERT INTO "entities" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Entity 2"], ["amount", 21], ["user_id", 6], ["created_at", "2023-07-04 22:33:09.775288"], ["updated_at", "2023-07-04 22:33:09.775288"]]
+  [1m[36mTRANSACTION (359.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (279.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroupEntity Create (301.0ms)[0m  [1m[32mINSERT INTO "group_entities" ("group_id", "entity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 6], ["entity_id", 8], ["created_at", "2023-07-04 22:33:10.807188"], ["updated_at", "2023-07-04 22:33:10.807188"]]
+  [1m[36mTRANSACTION (377.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (318.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroupEntity Create (319.3ms)[0m  [1m[32mINSERT INTO "group_entities" ("group_id", "entity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 6], ["entity_id", 9], ["created_at", "2023-07-04 22:33:11.767330"], ["updated_at", "2023-07-04 22:33:11.767330"]]
+  [1m[36mTRANSACTION (319.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEntity Exists? (286.2ms)[0m  [1m[34mSELECT 1 AS one FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1 AND "entities"."id" = $2 LIMIT $3[0m  [["group_id", 6], ["id", 8], ["LIMIT", 1]]
+  [1m[36mEntity Exists? (351.1ms)[0m  [1m[34mSELECT 1 AS one FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1 AND "entities"."id" = $2 LIMIT $3[0m  [["group_id", 6], ["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (319.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (320.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (326.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (307.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caleb@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (253.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb"], ["created_at", "2023-07-04 22:33:14.962359"], ["updated_at", "2023-07-04 22:33:14.962359"], ["email", "caleb@mail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (341.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (243.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (279.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (286.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (393.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caleb@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (325.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb"], ["created_at", "2023-07-04 22:33:17.048164"], ["updated_at", "2023-07-04 22:33:17.048164"], ["email", "caleb@mail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (271.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (367.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (257.1ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Group 1"], ["icon", "icon.png"], ["user_id", nil], ["created_at", "2023-07-04 22:33:17.647310"], ["updated_at", "2023-07-04 22:33:17.647310"]]
+  [1m[36mTRANSACTION (253.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (244.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (248.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (267.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (251.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "caleb@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (249.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb"], ["created_at", "2023-07-04 22:33:19.788617"], ["updated_at", "2023-07-04 22:33:19.788617"], ["email", "caleb@mail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (246.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (241.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (254.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (259.8ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Group 1"], ["icon", "icon.png"], ["user_id", 9], ["created_at", "2023-07-04 22:33:20.530388"], ["updated_at", "2023-07-04 22:33:20.530388"]]
+  [1m[36mTRANSACTION (319.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (319.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (259.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (258.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (280.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (278.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:33:22.806742"], ["updated_at", "2023-07-04 22:33:22.806742"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (278.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (351.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (349.6ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Huwaii"], ["icon", "icon.png"], ["user_id", 10], ["created_at", "2023-07-04 22:33:23.366925"], ["updated_at", "2023-07-04 22:33:23.366925"]]
+  [1m[36mTRANSACTION (242.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/9/entities" for 127.0.0.1 at 2023-07-04 23:33:24 +0100
+Processing by EntitiesController#index as HTML
+  Parameters: {"group_id"=>"9"}
+  [1m[36mGroup Load (288.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering entities/index.html.erb within layouts/application
+  [1m[36mEntity Sum (379.9ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 9]]
+  [1m[36mEntity Exists? (249.6ms)[0m  [1m[34mSELECT 1 AS one FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1 LIMIT $2[0m  [["group_id", 9], ["LIMIT", 1]]
+  [1m[36mEntity Load (280.5ms)[0m  [1m[34mSELECT "entities".* FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 9]]
+  Rendered entities/index.html.erb within layouts/application (Duration: 1496.6ms | Allocations: 2012)
+  Rendered layout layouts/application.html.erb (Duration: 2930.2ms | Allocations: 54129)
+Completed 200 OK in 3700ms (Views: 2056.8ms | ActiveRecord: 1198.6ms | Allocations: 60201)
+  [1m[36mTRANSACTION (303.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (312.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (260.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (261.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (267.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:33:29.738356"], ["updated_at", "2023-07-04 22:33:29.738356"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (278.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (279.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (279.3ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Huwaii"], ["icon", "icon.png"], ["user_id", 11], ["created_at", "2023-07-04 22:33:30.286885"], ["updated_at", "2023-07-04 22:33:30.286885"]]
+  [1m[36mTRANSACTION (279.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEntity Count (256.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "entities"[0m
+Started POST "/groups/10/entities" for 127.0.0.1 at 2023-07-04 23:33:31 +0100
+Processing by EntitiesController#create as HTML
+  Parameters: {"entity"=>{"name"=>"New Entity", "amount"=>"300", "user_id"=>"11"}, "group_id"=>"10"}
+[31mUnpermitted parameters: :entity, :group_id. Context: { controller: EntitiesController, action: create, request: #<ActionDispatch::Request:0x0000028a33938540>, params: {"entity"=>{"name"=>"New Entity", "amount"=>"300", "user_id"=>"11"}, "controller"=>"entities", "action"=>"create", "group_id"=>"10"} }[0m
+  [1m[36mTRANSACTION (335.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEntity Create (263.1ms)[0m  [1m[32mINSERT INTO "entities" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", nil], ["amount", nil], ["user_id", 11], ["created_at", "2023-07-04 22:33:31.430329"], ["updated_at", "2023-07-04 22:33:31.430329"]]
+  [1m[36mTRANSACTION (367.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (326.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Load (323.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mEntity Load (243.6ms)[0m  [1m[34mSELECT "entities".* FROM "entities" WHERE "entities"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mGroupEntity Create (264.9ms)[0m  [1m[32mINSERT INTO "group_entities" ("group_id", "entity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 10], ["entity_id", 10], ["created_at", "2023-07-04 22:33:33.551313"], ["updated_at", "2023-07-04 22:33:33.551313"]]
+  [1m[36mTRANSACTION (258.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/groups/10/entities
+Completed 302 Found in 2647ms (ActiveRecord: 2383.1ms | Allocations: 2079)
+  [1m[36mEntity Count (296.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "entities"[0m
+  [1m[36mTRANSACTION (267.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (319.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (277.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (359.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (270.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:33:35.934635"], ["updated_at", "2023-07-04 22:33:35.934635"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (280.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/new" for 127.0.0.1 at 2023-07-04 23:33:36 +0100
+Processing by GroupsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/new.html.erb within layouts/application (Duration: 30.3ms | Allocations: 898)
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 2370)
+Completed 200 OK in 40ms (Views: 38.2ms | ActiveRecord: 0.0ms | Allocations: 3078)
+  [1m[36mTRANSACTION (270.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (246.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (258.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (252.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (256.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:33:37.828867"], ["updated_at", "2023-07-04 22:33:37.828867"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (243.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups" for 127.0.0.1 at 2023-07-04 23:33:38 +0100
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Exists? (282.6ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroup Load (329.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[36mEntity Sum (268.8ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 1]]
+  [1m[36mEntity Sum (277.1ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 2]]
+  Rendered groups/index.html.erb within layouts/application (Duration: 1191.6ms | Allocations: 1824)
+  Rendered layout layouts/application.html.erb (Duration: 1193.0ms | Allocations: 3212)
+Completed 200 OK in 1195ms (Views: 35.6ms | ActiveRecord: 1157.8ms | Allocations: 3542)
+  [1m[36mTRANSACTION (276.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (268.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (249.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (286.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (310.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:33:40.894793"], ["updated_at", "2023-07-04 22:33:40.894793"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (278.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mGroup Count (250.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "groups"[0m
+Started POST "/groups" for 127.0.0.1 at 2023-07-04 23:33:41 +0100
+Processing by GroupsController#create as HTML
+  Parameters: {"group"=>{"name"=>"New Group", "user_id"=>"14"}}
+[31mUnpermitted parameter: :user_id. Context: { controller: GroupsController, action: create, request: #<ActionDispatch::Request:0x0000028a33ac6240>, params: {"group"=>{"name"=>"New Group", "user_id"=>"14"}, "controller"=>"groups", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (265.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (254.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mGroup Create (319.1ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "New Group"], ["icon", nil], ["user_id", 14], ["created_at", "2023-07-04 22:33:42.261916"], ["updated_at", "2023-07-04 22:33:42.261916"]]
+  [1m[36mTRANSACTION (261.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/groups
+Completed 302 Found in 1105ms (ActiveRecord: 1100.9ms | Allocations: 971)
+  [1m[36mGroup Count (280.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "groups"[0m
+  [1m[36mTRANSACTION (278.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (285.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (274.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (333.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (262.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:33:44.672627"], ["updated_at", "2023-07-04 22:33:44.672627"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (244.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/new" for 127.0.0.1 at 2023-07-04 23:33:45 +0100
+Processing by GroupsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 335)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1723)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 1973)
+  [1m[36mTRANSACTION (254.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (260.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (293.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (353.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (356.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:33:46.608917"], ["updated_at", "2023-07-04 22:33:46.608917"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (326.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (277.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (262.1ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Vacation"], ["icon", "icon.png"], ["user_id", 16], ["created_at", "2023-07-04 22:33:47.294739"], ["updated_at", "2023-07-04 22:33:47.294739"]]
+  [1m[36mTRANSACTION (358.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (253.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEntity Create (275.3ms)[0m  [1m[32mINSERT INTO "entities" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Huwaii"], ["amount", 2020], ["user_id", 16], ["created_at", "2023-07-04 22:33:48.196737"], ["updated_at", "2023-07-04 22:33:48.196737"]]
+  [1m[36mTRANSACTION (326.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (326.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroupEntity Create (303.6ms)[0m  [1m[32mINSERT INTO "group_entities" ("group_id", "entity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 12], ["entity_id", 11], ["created_at", "2023-07-04 22:33:49.055006"], ["updated_at", "2023-07-04 22:33:49.055006"]]
+  [1m[36mTRANSACTION (248.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/12/entities" for 127.0.0.1 at 2023-07-04 23:33:49 +0100
+Processing by EntitiesController#index as HTML
+  Parameters: {"group_id"=>"12"}
+  [1m[36mGroup Load (381.9ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering entities/index.html.erb within layouts/application
+  [1m[36mEntity Sum (261.2ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 12]]
+  [1m[36mEntity Exists? (296.1ms)[0m  [1m[34mSELECT 1 AS one FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1 LIMIT $2[0m  [["group_id", 12], ["LIMIT", 1]]
+  [1m[36mEntity Load (390.8ms)[0m  [1m[34mSELECT "entities".* FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 12]]
+  Rendered entities/index.html.erb within layouts/application (Duration: 951.2ms | Allocations: 935)
+  Rendered layout layouts/application.html.erb (Duration: 961.8ms | Allocations: 2328)
+Completed 200 OK in 1346ms (Views: 14.4ms | ActiveRecord: 1330.0ms | Allocations: 2767)
+  [1m[36mTRANSACTION (270.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (280.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (270.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (262.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (257.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:33:52.670744"], ["updated_at", "2023-07-04 22:33:52.670744"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (276.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (319.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (318.1ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Vacation"], ["icon", "icon.png"], ["user_id", 17], ["created_at", "2023-07-04 22:33:53.206735"], ["updated_at", "2023-07-04 22:33:53.206735"]]
+  [1m[36mTRANSACTION (261.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (349.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEntity Create (328.9ms)[0m  [1m[32mINSERT INTO "entities" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Huwaii"], ["amount", 2020], ["user_id", 17], ["created_at", "2023-07-04 22:33:54.108856"], ["updated_at", "2023-07-04 22:33:54.108856"]]
+  [1m[36mTRANSACTION (246.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (250.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroupEntity Create (291.0ms)[0m  [1m[32mINSERT INTO "group_entities" ("group_id", "entity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 13], ["entity_id", 12], ["created_at", "2023-07-04 22:33:55.035132"], ["updated_at", "2023-07-04 22:33:55.035132"]]
+  [1m[36mTRANSACTION (242.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/13/entities" for 127.0.0.1 at 2023-07-04 23:33:55 +0100
+Processing by EntitiesController#index as HTML
+  Parameters: {"group_id"=>"13"}
+  [1m[36mGroup Load (262.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering entities/index.html.erb within layouts/application
+  [1m[36mEntity Sum (318.8ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 13]]
+  [1m[36mEntity Exists? (278.1ms)[0m  [1m[34mSELECT 1 AS one FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1 LIMIT $2[0m  [["group_id", 13], ["LIMIT", 1]]
+  [1m[36mEntity Load (261.4ms)[0m  [1m[34mSELECT "entities".* FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 13]]
+  Rendered entities/index.html.erb within layouts/application (Duration: 861.8ms | Allocations: 927)
+  Rendered layout layouts/application.html.erb (Duration: 862.9ms | Allocations: 2319)
+Completed 200 OK in 1126ms (Views: 4.9ms | ActiveRecord: 1120.8ms | Allocations: 2757)
+  [1m[36mTRANSACTION (246.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (337.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (467.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (254.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (327.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:33:58.547810"], ["updated_at", "2023-07-04 22:33:58.547810"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (281.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (256.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (244.1ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Vacation"], ["icon", "icon.png"], ["user_id", 18], ["created_at", "2023-07-04 22:33:59.166178"], ["updated_at", "2023-07-04 22:33:59.166178"]]
+  [1m[36mTRANSACTION (285.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (271.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mEntity Create (258.4ms)[0m  [1m[32mINSERT INTO "entities" ("name", "amount", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Huwaii"], ["amount", 2020], ["user_id", 18], ["created_at", "2023-07-04 22:33:59.954956"], ["updated_at", "2023-07-04 22:33:59.954956"]]
+  [1m[36mTRANSACTION (709.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (267.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroupEntity Create (255.5ms)[0m  [1m[32mINSERT INTO "group_entities" ("group_id", "entity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 14], ["entity_id", 13], ["created_at", "2023-07-04 22:34:01.196049"], ["updated_at", "2023-07-04 22:34:01.196049"]]
+  [1m[36mTRANSACTION (245.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups/14/entities" for 127.0.0.1 at 2023-07-04 23:34:01 +0100
+Processing by EntitiesController#index as HTML
+  Parameters: {"group_id"=>"14"}
+  [1m[36mGroup Load (366.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering entities/index.html.erb within layouts/application
+  [1m[36mEntity Sum (318.3ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 14]]
+  [1m[36mEntity Exists? (251.2ms)[0m  [1m[34mSELECT 1 AS one FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1 LIMIT $2[0m  [["group_id", 14], ["LIMIT", 1]]
+  [1m[36mEntity Load (244.2ms)[0m  [1m[34mSELECT "entities".* FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 14]]
+  Rendered entities/index.html.erb within layouts/application (Duration: 816.6ms | Allocations: 927)
+  Rendered layout layouts/application.html.erb (Duration: 817.7ms | Allocations: 2307)
+Completed 200 OK in 1185ms (Views: 4.3ms | ActiveRecord: 1179.9ms | Allocations: 2745)
+  [1m[36mTRANSACTION (258.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (353.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (249.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (250.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (268.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:34:04.550776"], ["updated_at", "2023-07-04 22:34:04.550776"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (247.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (252.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (251.1ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Vacation"], ["icon", "icon.png"], ["user_id", 19], ["created_at", "2023-07-04 22:34:05.068542"], ["updated_at", "2023-07-04 22:34:05.068542"]]
+  [1m[36mTRANSACTION (279.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups" for 127.0.0.1 at 2023-07-04 23:34:05 +0100
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Exists? (316.6ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroup Load (279.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[36mEntity Sum (278.1ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 1]]
+  [1m[36mEntity Sum (278.6ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 2]]
+  [1m[36mEntity Sum (278.0ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 15]]
+  Rendered groups/index.html.erb within layouts/application (Duration: 1437.2ms | Allocations: 2001)
+  Rendered layout layouts/application.html.erb (Duration: 1438.6ms | Allocations: 3389)
+Completed 200 OK in 1439ms (Views: 8.5ms | ActiveRecord: 1430.4ms | Allocations: 3636)
+  [1m[36mTRANSACTION (259.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (255.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (277.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (279.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (258.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:34:08.726353"], ["updated_at", "2023-07-04 22:34:08.726353"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (252.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (245.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (261.2ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Vacation"], ["icon", "icon.png"], ["user_id", 20], ["created_at", "2023-07-04 22:34:09.239836"], ["updated_at", "2023-07-04 22:34:09.239836"]]
+  [1m[36mTRANSACTION (254.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups" for 127.0.0.1 at 2023-07-04 23:34:10 +0100
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Exists? (279.5ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroup Load (280.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[36mEntity Sum (278.6ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 1]]
+  [1m[36mEntity Sum (281.8ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 2]]
+  [1m[36mEntity Sum (273.5ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 16]]
+  Rendered groups/index.html.erb within layouts/application (Duration: 1399.7ms | Allocations: 2001)
+  Rendered layout layouts/application.html.erb (Duration: 1401.4ms | Allocations: 3389)
+Completed 200 OK in 1402ms (Views: 8.3ms | ActiveRecord: 1393.6ms | Allocations: 3636)
+  [1m[36mTRANSACTION (347.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (373.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (344.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (319.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "calebchris000@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (327.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Caleb Nwaizu"], ["created_at", "2023-07-04 22:34:13.046227"], ["updated_at", "2023-07-04 22:34:13.046227"], ["email", "calebchris000@gmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (339.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (257.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (261.7ms)[0m  [1m[32mINSERT INTO "groups" ("name", "icon", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Vacation"], ["icon", "icon.png"], ["user_id", 21], ["created_at", "2023-07-04 22:34:13.715396"], ["updated_at", "2023-07-04 22:34:13.715396"]]
+  [1m[36mTRANSACTION (291.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups" for 127.0.0.1 at 2023-07-04 23:34:14 +0100
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Exists? (459.5ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroup Load (524.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[36mEntity Sum (288.6ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 1]]
+  [1m[36mEntity Sum (320.7ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 2]]
+  [1m[36mEntity Sum (275.8ms)[0m  [1m[34mSELECT SUM("entities"."amount") FROM "entities" INNER JOIN "group_entities" ON "entities"."id" = "group_entities"."entity_id" WHERE "group_entities"."group_id" = $1[0m  [["group_id", 17]]
+  Rendered groups/index.html.erb within layouts/application (Duration: 1875.7ms | Allocations: 2001)
+  Rendered layout layouts/application.html.erb (Duration: 1877.2ms | Allocations: 3390)
+Completed 200 OK in 1878ms (Views: 8.2ms | ActiveRecord: 1869.3ms | Allocations: 3637)
+  [1m[36mTRANSACTION (315.6ms)[0m  [1m[31mROLLBACK[0m
