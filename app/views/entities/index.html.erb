@@ -1,0 +1,23 @@
+
+<div class="category">
+<h4 class=""><%=@group.name%></h4>
+<h4>$<%= @entities.sum(:amount)%></h4>
+</div>
+<div class="transaction_container">
+<% if @entities.empty?%>
+<p>There are no entities yet</p>
+<% end %>
+
+<div class="entities_container">
+
+  <% @entities.each do |entity| %>
+<div class="entities">
+    <p><%= entity.name%></p>
+    <p>$<%= entity.amount.nil? ? 0 : entity.amount%></p>
+</div>
+  <% end %>
+</div>
+  <%= link_to "Create New Entity", new_group_entity_path, class: 'create_entity' %>
+
+</div>
+

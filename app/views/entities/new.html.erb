@@ -1,0 +1,17 @@
+<div class="new_group_container">
+<h2>Create New Transaction</h2>
+<%= form_with url: group_entities_path, method: :post do |f| %>
+
+    <div class="field">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name" %>
+    </div>
+
+    <div class="field">
+      <%= f.number_field :amount, autofocus: true, autocomplete: "amount", placeholder: "Amount" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Add" %>
+    </div>
+  <% end %>
+</div>
