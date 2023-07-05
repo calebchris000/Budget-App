@@ -60,7 +60,7 @@
 
 > You can watch a demo of the video description below.
 
-[Link to Loom.](https://www.loom.com/share/853f6873d4af4481b708199f2abf384d?sid=79aa4915-9a24-4f12-94a3-2cec7d81e365)
+[Link to Loom.](https://www.loom.com/share/01648bd3f87d473ba4f3877ea14bf392?sid=2b81736e-6da9-4f37-a3af-1751fa192556)
 
 ### Key Features <a name="key-features"></a>
 
